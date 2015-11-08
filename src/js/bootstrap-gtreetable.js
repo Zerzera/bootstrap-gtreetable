@@ -7,7 +7,7 @@
         this.$tree = $(element);
         this.language = this.options.languages[this.options.language] === undefined ?
                 this.options.languages['en-US'] :
-                $.extend({}, this.options.languages['en-US'], this.options.languages[this.options.language]);
+                $.extend({}, this.options.languages['en-US'], this.optionbs.languages[this.options.language]);
         this._isNodeDragging = false;
         this._lastId = 0;
 
@@ -559,20 +559,20 @@
                             handle: '.' + that.manager.options.classes.handleIcon,
                             start: function (e) {
                                 if (!$.browser.webkit) {
-                                    $(this).data("bs.gtreetable.gtreetablenode.scrollTop", $(window).scrollTop());
+                                    //$(this).data("bs.gtreetable.gtreetablenode.scrollTop", $(window).scrollTop());
                                 }
                             },
                             stop: function (e) {
                                 that.manager.isNodeDragging(false);
                             },
                             drag: function (e, ui) {
-                                if (!$.browser.webkit) {
-                                    var strollTop = $(window).scrollTop(),
-                                            delta = ($(this).data("bs.gtreetable.gtreetablenode.scrollTop") - strollTop);
-
-                                    ui.position.top -= strollTop + delta;
-                                    $(this).data("bs.gtreetable.gtreetablenode.startingScrollTop", strollTop);
-                                }
+//                                if (!$.browser.webkit) {
+//                                    var strollTop = $(window).scrollTop(),
+//                                            delta = ($(this).data("bs.gtreetable.gtreetablenode.scrollTop") - strollTop);
+//
+//                                    ui.position.top -= strollTop + delta;
+//                                    $(this).data("bs.gtreetable.gtreetablenode.startingScrollTop", strollTop);
+//                                }
                                 var $droppable = $(this).data("bs.gtreetable.gtreetablenode.currentDroppable");
                                 if ($droppable) {
                                     var data = getMoveData(ui, $droppable);
