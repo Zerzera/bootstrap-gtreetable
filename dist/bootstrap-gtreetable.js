@@ -566,9 +566,9 @@
                             cursorAt: {top: 0, left: 0},
                             handle: '.' + that.manager.options.classes.handleIcon,
                             start: function (e) {
-                                if (!$.browser.webkit) {
-                                    //$(this).data("bs.gtreetable.gtreetablenode.scrollTop", $(window).scrollTop());
-                                }
+//                                if (!$.browser.webkit) {
+                                //$(this).data("bs.gtreetable.gtreetablenode.scrollTop", $(window).scrollTop());
+//                                }
                             },
                             stop: function (e) {
                                 that.manager.isNodeDragging(false);
