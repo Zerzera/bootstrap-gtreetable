@@ -42,7 +42,7 @@ Till now aplication was test on following browsers:
 	      return {
 	        type: 'GET',
 	        url: 'nodeChildren',
-	        data: { 'id': id },        
+	        data: { 'id': id },
 	        dataType: 'json',
 	        error: function(XMLHttpRequest) {
 	          alert(XMLHttpRequest.status+': '+XMLHttpRequest.responseText);
@@ -60,9 +60,14 @@ More about `source` parameter and returned data format find in [configuration](#
 
 Actions defined in `defaultAction` and `actions` parameters are available after indicate or choosing the node.
 `defualtActions` includes defualt actions, needed to CUD operations. It may be disabled by set null value.
-`actions` defined the actions which may be add after last defined position in `defaultActions`. 
+`actions` defined the actions which may be add after last defined position in `defaultActions`.
 
 More about action format find in [configuration](#configuration) section.
+
+### Buttons
+Adding extra buttons
+
+More about action format find in [configuration](#buttons) section.
 
 ### CUD
 
@@ -76,7 +81,7 @@ jQuery('#gtreetable').gtreetable({
     return {
       type: 'GET',
       url: 'nodeChildren',
-      data: { 'id': id },        
+      data: { 'id': id },
       dataType: 'json',
       error: function(XMLHttpRequest) {
         alert(XMLHttpRequest.status+': '+XMLHttpRequest.responseText);
@@ -121,11 +126,11 @@ The new node may be added in various locations:
 ### Moving
 
 Moving nodes may be realized by using Drag and Drop method.
-By default mechanism is disabled, to activate it `draggable` parameter need to be set on true value. Also you need to define `onMove` event. 
+By default mechanism is disabled, to activate it `draggable` parameter need to be set on true value. Also you need to define `onMove` event.
 
 At the moment of node dragging, its new locations is marked by pointer with may be located:
 + before the node (`before`),
-+ as a last child (`lastChild`), 
++ as a last child (`lastChild`),
 + after the node (`after`).
 
 ![](http://gilek.net/images/gtt2-pointer.png)
@@ -144,7 +149,7 @@ jQuery('#gtreetable').gtreetable({
     return {
       type: 'GET',
       url: 'nodeChildren',
-      data: { 'id': id },        
+      data: { 'id': id },
       dataType: 'json',
       error: function(XMLHttpRequest) {
         alert(XMLHttpRequest.status+': '+XMLHttpRequest.responseText);
@@ -164,8 +169,8 @@ jQuery('#gtreetable').gtreetable({
       error: function(XMLHttpRequest) {
         alert(XMLHttpRequest.status+': '+XMLHttpRequest.responseText);
       }
-    }; 
-  }    
+    };
+  }
 });
 ```
 
@@ -194,19 +199,19 @@ jQuery('#gtreetable').gtreetable({
     return {
       type: 'GET',
       url: 'nodeChildren',
-      data: { 'id': id },        
+      data: { 'id': id },
       dataType: 'json',
       error: function(XMLHttpRequest) {
         alert(XMLHttpRequest.status+': '+XMLHttpRequest.responseText);
       }
     }
   },
-  'sort': function (a, b) {          
+  'sort': function (a, b) {
     var aName = a.name.toLowerCase();
-    var bName = b.name.toLowerCase(); 
-    return ((aName < bName) ? -1 : ((aName > bName) ? 1 : 0));                            
-  }  
-}); 
+    var bName = b.name.toLowerCase();
+    return ((aName < bName) ? -1 : ((aName > bName) ? 1 : 0));
+  }
+});
 ```
 
 ### Nodes types
@@ -221,7 +226,7 @@ jQuery('#gtreetable').gtreetable({
     return {
       type: 'GET',
       url: 'nodeChildren',
-      data: { 'id': id },        
+      data: { 'id': id },
       dataType: 'json',
       error: function(XMLHttpRequest) {
         alert(XMLHttpRequest.status+': '+XMLHttpRequest.responseText);
@@ -234,8 +239,8 @@ jQuery('#gtreetable').gtreetable({
 
 Adding various node type is realized by `GTreeTableNode.add(String position, String type)` method.
 
-![](http://gilek.net/images/gtt2-type.png) 
- 
+![](http://gilek.net/images/gtt2-type.png)
+
 ### Translations
 
 User interface elements by default are displayed in English. There is a possibility to change language by change `language` parameter and attaching appropriate files:
@@ -252,7 +257,7 @@ jQuery('#gtreetable').gtreetable({
     return {
       type: 'GET',
       url: 'nodeChildren',
-      data: { 'id': id },        
+      data: { 'id': id },
       dataType: 'json',
       error: function(XMLHttpRequest) {
         alert(XMLHttpRequest.status+': '+XMLHttpRequest.responseText);
@@ -263,7 +268,7 @@ jQuery('#gtreetable').gtreetable({
 });
 ```
 
-In the moment when some position from translations can't be found then its values stays unchanged. 
+In the moment when some position from translations can't be found then its values stays unchanged.
 
 ### Cache
 
@@ -280,9 +285,20 @@ There is possibility to force refesh data by pushing <kbd>Alt</kbd> in the momen
 
 + `actions` (Array) - set of actions, which should be added after the last position defined in `defaultActions` parameter. More info about required data format is located in description of  `defaultActions` parameter.
 
++ `buttons` (Array) -
+
+    ```javascript
+    {
+      icon: 'glyphicon , font-awesome',
+      title: 'the title' //
+      class: 'some classes' //
+      event: function (oNode, oManager) { } // code to execute 
+    }
+    ```
+
 + `cache (Integer)` - define whether actual node state should be stored in cache. It's possible to work in 3 levels:
   + 0 - mechanism off,
-  + 1 - partial mapping. In the moment of moving or CUD operation the state of depending nodes is resetting, 
+  + 1 - partial mapping. In the moment of moving or CUD operation the state of depending nodes is resetting,
   + 2 - fully mapping.
 
 + `classes` (Object) - parameter consists set of CSS class using to build user interface.
@@ -292,19 +308,19 @@ There is possibility to force refesh data by pushing <kbd>Alt</kbd> in the momen
     ```javascript
     {
       name: 'Action label',
-      event: function (oNode, oManager) { } // code to execute 
+      event: function (oNode, oManager) { } // code to execute
     }
     ```
 
     Separator (horizontal line) defined by following construction (object):
-    
+
     ```javascript
     { divider: true }
     ```
 
-    When action label is surrounded by bracket and preceded by $ i.e. `${actionEdit}` then its value is translated on `language` parameter language. 
+    When action label is surrounded by bracket and preceded by $ i.e. `${actionEdit}` then its value is translated on `language` parameter language.
 
-+ `dragCanExpand` (boolean) - define whether during node moving is possible to expand other nodes after choosing appropriate icon. 	
++ `dragCanExpand` (boolean) - define whether during node moving is possible to expand other nodes after choosing appropriate icon.
 
 + `draggable` (boolean) - define whether nodes can be moved. Parameter value changing on true is related with necessity of adding required [jQueryUI](http://jqueryui.com/) library:
   + core,
@@ -323,7 +339,7 @@ There is possibility to force refesh data by pushing <kbd>Alt</kbd> in the momen
 + `selectLimit` (Integer) - define nodes selection behavours:
   + > 1 - indicate exactly the same number of nodes,
   + 0 - selection disabled,
-  + -1 - unlimited selection.    
+  + -1 - unlimited selection.
 
 + `nodeIndent` (Integer) - Distance between node and its container. The value is multiplied, depending on node level.
 
@@ -333,38 +349,38 @@ There is possibility to force refesh data by pushing <kbd>Alt</kbd> in the momen
 
 + `readonly` (boolean) - determines whether executing action on node is possible or not.
 
-+ `showExpandIconOnEmpty` (boolean) - parameter set on true value means that expanding node icon stays visible all the time, even if there is no node child. 
++ `showExpandIconOnEmpty` (boolean) - parameter set on true value means that expanding node icon stays visible all the time, even if there is no node child.
 
 + `sort` (callback (GTreeTableNode oNodeA, GTreeTableNode oNodeB)) - sorting function triggered in the moment of: displaying nodes, adding new one or its changing. Working of sorting function is the same as in case of [table sorting](https://developer.mozilla.org/pl/docs/Web/JavaScript/Referencje/Obiekty/Array/sort).
 
-	  Example of sorting by node name in the ascending order. 
+	  Example of sorting by node name in the ascending order.
 
     ```javascript
-    function (a, b) {          
+    function (a, b) {
       var aName = a.name.toLowerCase();
-      var bName = b.name.toLowerCase(); 
-      return ((aName < bName) ? -1 : ((aName > bName) ? 1 : 0));                            
+      var bName = b.name.toLowerCase();
+      return ((aName < bName) ? -1 : ((aName > bName) ? 1 : 0));
     }
     ```
- 
+
 
 + `source` (callback (Integer id))<a name="source"></a> - function must return `jQuery.ajax` settings, responsible for getting nodes from data base.
 
     If ID = 0, then tree roots should be returned.
-    
+
 	  Information about nodes should be included in the object table in JSON format:
 
     ```JSON
     {
       "id": "node ID",
       "name": "node name",
-      "level": "node level", 
-      "type": "node type" 
+      "level": "node level",
+      "type": "node type"
     }
     ```
 + `template` (String)
 
-+ `templateParts` (Object) 
++ `templateParts` (Object)
 
 + `types` (Object) - object consists relations between node types and its icon class i.e.
 
@@ -391,9 +407,9 @@ There is possibility to force refesh data by pushing <kbd>Alt</kbd> in the momen
 + `GTreeTableManager.getSelectedNodes()` - returns table of selected nodes.
 
 + `GTreeTableNode.getPath(GTreeTableNode oNode)` -  returns table consists the node path i.e.:
-		
+
     ```javascript
-    ["Node name", "Parent node", "Main node"]	
+    ["Node name", "Parent node", "Main node"]
     ```
 
 ## Server side

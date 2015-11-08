@@ -1,0 +1,19 @@
+{
+    "name": "bootstrap-gtreetable",
+    "description": "",
+    "type": "component",
+    "homepage": "",
+    "license": "MIT",
+    "extra": {
+        "component": {
+            "scripts": [
+                "dist/bootstrap-gtreetable.min.js",
+                "src/js/bootstrap-gtreetable.js"
+            ],
+            "styles": [
+                "dist/bootstrap-gtreetable.min.css",
+                "dist/languages/**"
+            ]
+        }
+    }
+}
