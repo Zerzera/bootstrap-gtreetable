@@ -360,8 +360,10 @@
         },
         setMovePosition: function (position, pointerOffset) {
             this.$node.removeClass(this.manager.options.classes.draggableContainer);
+            this.$node.removeClass(this.getMovePosition());
             if (position !== undefined) {
                 this.$node.addClass(this.manager.options.classes.draggableContainer);
+                this.$node.addClass(position);
                 this.movePosition = position;
                 this.$pointer.css('top', pointerOffset.top + 'px');
                 this.$pointer.css('left', pointerOffset.left + 'px');

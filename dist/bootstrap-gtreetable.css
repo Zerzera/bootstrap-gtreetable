@@ -109,3 +109,16 @@
 .node-draggable-container .node-draggable-pointer {
   visibility: visible;
 }
+.gtreetable .node-draggable.node-draggable-container .node-icon-ce,
+.gtreetable .node-draggable.node-draggable-container .node-icon-handle {
+  visibility: hidden;
+}
+.gtreetable .node-draggable.node-draggable-container.lastChild {
+  border-left: 2px #5bc0de solid;
+}
+.gtreetable .node-draggable.node-draggable-container.after {
+  border-bottom: 2px #5bc0de solid;
+}
+.gtreetable .node-draggable.node-draggable-container.before {
+  border-top: 2px #5bc0de solid;
+}

@@ -10,7 +10,7 @@
 .gtreetable .node-icon-ce:before { content: "\e080"; }
 .gtreetable .node-expanded .node-icon-ce  { .rotate(90deg); }
 .gtreetable .node-hovered { background-color: @table-bg-hover; }
-.gtreetable .node-hovered .node-icon-ce, 
+.gtreetable .node-hovered .node-icon-ce,
 .gtreetable .node-hovered .node-icon-type { .opacity(1); }
 .gtreetable .node-icon-handle {
     padding-right: 12px;
@@ -36,7 +36,23 @@
     border-top: 6px solid;
     border-right: 6px solid transparent;
     border-left: 6px solid transparent;
-    transform:rotate(-90deg); 
+    transform:rotate(-90deg);
 }
 .node-draggable-container { background-color: @table-bg-hover;}
 .node-draggable-container .node-draggable-pointer { visibility: visible; }
+.gtreetable .node-draggable.node-draggable-container {
+    .node-icon-ce,.node-icon-handle {
+        visibility: hidden;
+    }
+}
+.gtreetable .node-draggable.node-draggable-container{
+    &.lastChild {
+        border-left: 2px #5bc0de solid;
+    }
+    &.after {
+        border-bottom: 2px #5bc0de solid;
+    }
+    &.before {
+        border-top: 2px #5bc0de solid;
+    }
+}
