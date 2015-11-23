@@ -33,10 +33,12 @@
     height: 0;
     margin-left: 2px;
     vertical-align: middle;
-    border-top: 6px solid;
+    transform:rotate(-90deg);
+}
+.node-draggable {
+    border-top: 6px solid transparent;
     border-right: 6px solid transparent;
     border-left: 6px solid transparent;
-    transform:rotate(-90deg);
 }
 .node-draggable-container { background-color: @table-bg-hover;}
 .node-draggable-container .node-draggable-pointer { visibility: visible; }
@@ -47,12 +49,12 @@
 }
 .gtreetable .node-draggable.node-draggable-container{
     &.lastChild {
-        border-left: 2px #5bc0de solid;
+        border-left: 6px #5bc0de solid;
     }
     &.after {
-        border-bottom: 2px #5bc0de solid;
+        border-bottom: 6px #5bc0de solid;
     }
     &.before {
-        border-top: 2px #5bc0de solid;
+        border-top: 6px #5bc0de solid;
     }
 }
