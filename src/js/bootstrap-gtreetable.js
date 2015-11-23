@@ -7,7 +7,7 @@
         this.$tree = $(element);
         this.language = this.options.languages[this.options.language] === undefined ?
                 this.options.languages['en-US'] :
-                $.extend({}, this.options.languages['en-US'], this.optionbs.languages[this.options.language]);
+                $.extend({}, this.options.languages['en-US'], this.options.languages[this.options.language]);
         this._isNodeDragging = false;
         this._lastId = 0;
 
